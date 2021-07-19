@@ -18,6 +18,11 @@
 		0590135C26A5746D005F0D33 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0590135B26A5746D005F0D33 /* SDWebImage */; };
 		0590135F26A57659005F0D33 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590135D26A57659005F0D33 /* LoadingShowable.swift */; };
 		0590136026A57659005F0D33 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590135E26A57659005F0D33 /* ShowAlert.swift */; };
+		0590136726A57E09005F0D33 /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590136526A57E09005F0D33 /* GameCell.swift */; };
+		0590136826A57E09005F0D33 /* GameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0590136626A57E09005F0D33 /* GameCell.xib */; };
+		0590136F26A58B3C005F0D33 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590136D26A58B3C005F0D33 /* SearchViewController.swift */; };
+		0590137026A58B3C005F0D33 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590136E26A58B3C005F0D33 /* SearchViewModel.swift */; };
+		0590137226A58BC9005F0D33 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590137126A58BC9005F0D33 /* Throttler.swift */; };
 		05A59ED526A307850019A6A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A59ED426A307850019A6A2 /* AppDelegate.swift */; };
 		05A59ED726A307850019A6A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A59ED626A307850019A6A2 /* SceneDelegate.swift */; };
 		05A59ED926A307850019A6A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A59ED826A307850019A6A2 /* HomeViewController.swift */; };
@@ -56,6 +61,11 @@
 		0582269B26A31D7300E3C90F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0590135D26A57659005F0D33 /* LoadingShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingShowable.swift; path = "../../../../../Mobillium-Movie-App/Movie-App/Movie-App/Utils/LoadingShowable.swift"; sourceTree = "<group>"; };
 		0590135E26A57659005F0D33 /* ShowAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowAlert.swift; path = "../../../../../Mobillium-Movie-App/Movie-App/Movie-App/Utils/ShowAlert.swift"; sourceTree = "<group>"; };
+		0590136526A57E09005F0D33 /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		0590136626A57E09005F0D33 /* GameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCell.xib; sourceTree = "<group>"; };
+		0590136D26A58B3C005F0D33 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		0590136E26A58B3C005F0D33 /* SearchViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		0590137126A58BC9005F0D33 /* Throttler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Throttler.swift; path = "../../../../../Mobillium-Movie-App/Movie-App/Movie-App/Utils/Throttler.swift"; sourceTree = "<group>"; };
 		05A59ED126A307850019A6A2 /* GameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A59ED426A307850019A6A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05A59ED626A307850019A6A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +114,8 @@
 			isa = PBXGroup;
 			children = (
 				0528924526A430A5006C026B /* SliderCell.swift */,
+				0590136526A57E09005F0D33 /* GameCell.swift */,
+				0590136626A57E09005F0D33 /* GameCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -127,6 +139,7 @@
 		0582268D26A30BAD00E3C90F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				0590136C26A58B3C005F0D33 /* Search */,
 				0582269A26A31D6100E3C90F /* Home */,
 				0582269826A31D3D00E3C90F /* TabbarController.swift */,
 			);
@@ -136,6 +149,7 @@
 		0582268E26A30BC700E3C90F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0590137126A58BC9005F0D33 /* Throttler.swift */,
 				0590135D26A57659005F0D33 /* LoadingShowable.swift */,
 				0590135E26A57659005F0D33 /* ShowAlert.swift */,
 				0582268F26A30BD600E3C90F /* EndpointItem.swift */,
@@ -160,6 +174,16 @@
 				0582269B26A31D7300E3C90F /* HomeViewModel.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		0590136C26A58B3C005F0D33 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0590136D26A58B3C005F0D33 /* SearchViewController.swift */,
+				0590136E26A58B3C005F0D33 /* SearchViewModel.swift */,
+			);
+			name = Search;
+			path = "../../../../Mobillium-Movie-App/Movie-App/Movie-App/Screen/Search";
 			sourceTree = "<group>";
 		};
 		05A59EC826A307850019A6A2 = {
@@ -331,6 +355,7 @@
 				05A59EE426A307860019A6A2 /* LaunchScreen.storyboard in Resources */,
 				05A59EE126A307860019A6A2 /* Assets.xcassets in Resources */,
 				05A59EDC26A307850019A6A2 /* Main.storyboard in Resources */,
+				0590136826A57E09005F0D33 /* GameCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,9 +380,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0590136F26A58B3C005F0D33 /* SearchViewController.swift in Sources */,
 				0528924626A430A5006C026B /* SliderCell.swift in Sources */,
+				0590137026A58B3C005F0D33 /* SearchViewModel.swift in Sources */,
 				0582269026A30BD600E3C90F /* EndpointItem.swift in Sources */,
 				0582269226A30C2100E3C90F /* Keys.swift in Sources */,
+				0590137226A58BC9005F0D33 /* Throttler.swift in Sources */,
 				0590135F26A57659005F0D33 /* LoadingShowable.swift in Sources */,
 				05A59ED926A307850019A6A2 /* HomeViewController.swift in Sources */,
 				0582269C26A31D7300E3C90F /* HomeViewModel.swift in Sources */,
@@ -368,6 +396,7 @@
 				0590136026A57659005F0D33 /* ShowAlert.swift in Sources */,
 				0582269926A31D3D00E3C90F /* TabbarController.swift in Sources */,
 				0582269726A30E5700E3C90F /* Game.swift in Sources */,
+				0590136726A57E09005F0D33 /* GameCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
