@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0528924626A430A5006C026B /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0528924526A430A5006C026B /* SliderCell.swift */; };
 		0582268B26A30B6F00E3C90F /* CoreNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 0582268A26A30B6F00E3C90F /* CoreNetwork */; };
 		0582269026A30BD600E3C90F /* EndpointItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582268F26A30BD600E3C90F /* EndpointItem.swift */; };
 		0582269226A30C2100E3C90F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582269126A30C2100E3C90F /* Keys.swift */; };
@@ -14,6 +15,9 @@
 		0582269726A30E5700E3C90F /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582269626A30E5700E3C90F /* Game.swift */; };
 		0582269926A31D3D00E3C90F /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582269826A31D3D00E3C90F /* TabbarController.swift */; };
 		0582269C26A31D7300E3C90F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0582269B26A31D7300E3C90F /* HomeViewModel.swift */; };
+		0590135C26A5746D005F0D33 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0590135B26A5746D005F0D33 /* SDWebImage */; };
+		0590135F26A57659005F0D33 /* LoadingShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590135D26A57659005F0D33 /* LoadingShowable.swift */; };
+		0590136026A57659005F0D33 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590135E26A57659005F0D33 /* ShowAlert.swift */; };
 		05A59ED526A307850019A6A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A59ED426A307850019A6A2 /* AppDelegate.swift */; };
 		05A59ED726A307850019A6A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A59ED626A307850019A6A2 /* SceneDelegate.swift */; };
 		05A59ED926A307850019A6A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A59ED826A307850019A6A2 /* HomeViewController.swift */; };
@@ -43,12 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0528924526A430A5006C026B /* SliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		0582268F26A30BD600E3C90F /* EndpointItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointItem.swift; sourceTree = "<group>"; };
 		0582269126A30C2100E3C90F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		0582269426A30DF500E3C90F /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		0582269626A30E5700E3C90F /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		0582269826A31D3D00E3C90F /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		0582269B26A31D7300E3C90F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0590135D26A57659005F0D33 /* LoadingShowable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingShowable.swift; path = "../../../../../Mobillium-Movie-App/Movie-App/Movie-App/Utils/LoadingShowable.swift"; sourceTree = "<group>"; };
+		0590135E26A57659005F0D33 /* ShowAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowAlert.swift; path = "../../../../../Mobillium-Movie-App/Movie-App/Movie-App/Utils/ShowAlert.swift"; sourceTree = "<group>"; };
 		05A59ED126A307850019A6A2 /* GameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A59ED426A307850019A6A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05A59ED626A307850019A6A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0590135C26A5746D005F0D33 /* SDWebImage in Frameworks */,
 				0582268B26A30B6F00E3C90F /* CoreNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0528924426A43085006C026B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0528924526A430A5006C026B /* SliderCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0582268926A30B6F00E3C90F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +136,8 @@
 		0582268E26A30BC700E3C90F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0590135D26A57659005F0D33 /* LoadingShowable.swift */,
+				0590135E26A57659005F0D33 /* ShowAlert.swift */,
 				0582268F26A30BD600E3C90F /* EndpointItem.swift */,
 			);
 			path = Utils;
@@ -137,6 +155,7 @@
 		0582269A26A31D6100E3C90F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0528924426A43085006C026B /* Cell */,
 				05A59ED826A307850019A6A2 /* HomeViewController.swift */,
 				0582269B26A31D7300E3C90F /* HomeViewModel.swift */,
 			);
@@ -217,6 +236,7 @@
 			name = GameApp;
 			packageProductDependencies = (
 				0582268A26A30B6F00E3C90F /* CoreNetwork */,
+				0590135B26A5746D005F0D33 /* SDWebImage */,
 			);
 			productName = GameApp;
 			productReference = 05A59ED126A307850019A6A2 /* GameApp.app */;
@@ -289,6 +309,9 @@
 				Base,
 			);
 			mainGroup = 05A59EC826A307850019A6A2;
+			packageReferences = (
+				0590135A26A5746D005F0D33 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 05A59ED226A307850019A6A2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -332,14 +355,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0528924626A430A5006C026B /* SliderCell.swift in Sources */,
 				0582269026A30BD600E3C90F /* EndpointItem.swift in Sources */,
 				0582269226A30C2100E3C90F /* Keys.swift in Sources */,
+				0590135F26A57659005F0D33 /* LoadingShowable.swift in Sources */,
 				05A59ED926A307850019A6A2 /* HomeViewController.swift in Sources */,
 				0582269C26A31D7300E3C90F /* HomeViewModel.swift in Sources */,
 				0582269526A30DF500E3C90F /* Games.swift in Sources */,
 				05A59ED526A307850019A6A2 /* AppDelegate.swift in Sources */,
 				05A59ED726A307850019A6A2 /* SceneDelegate.swift in Sources */,
 				05A59EDF26A307850019A6A2 /* GameApp.xcdatamodeld in Sources */,
+				0590136026A57659005F0D33 /* ShowAlert.swift in Sources */,
 				0582269926A31D3D00E3C90F /* TabbarController.swift in Sources */,
 				0582269726A30E5700E3C90F /* Game.swift in Sources */,
 			);
@@ -675,10 +701,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		0590135A26A5746D005F0D33 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		0582268A26A30B6F00E3C90F /* CoreNetwork */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreNetwork;
+		};
+		0590135B26A5746D005F0D33 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0590135A26A5746D005F0D33 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
