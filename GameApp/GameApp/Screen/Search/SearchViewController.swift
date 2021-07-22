@@ -12,20 +12,31 @@ extension SearchViewController {
     private enum Constants {
         static let searchCell = "SearchCell"
         static let detailViewController = "DetailViewController"
+        static let emptyMessage = "Üzgünüz, aradığınız oyun bulunamadı!"
     }
 }
 
 // MARK: - SearchViewController
 final class SearchViewController: UIViewController {
-    
+
     @IBOutlet private weak var searchTableView: UITableView!
     var searchResult: [GameResult] = [] {
         didSet {
-            viewModel.searchedGameList = searchResult
-            reloadSearchTableView()
+            setSearchResult()
         }
     }
     var viewModel: SearchViewModel = SearchViewModel()
+    
+    private func setSearchResult(){
+        viewModel.searchedGameList = []
+        if searchResult.isEmpty {
+            searchTableView.setEmptyMessage(message: Constants.emptyMessage)
+        } else {
+            searchTableView.restore()
+            viewModel.searchedGameList = searchResult
+        }
+        reloadSearchTableView()
+    }
 }
 
 // MARK: - SearchViewModelDelegate, ShowAlert
@@ -46,8 +57,6 @@ extension SearchViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        print(viewModel.searchedGameList.count)
         let cell = UITableViewCell(style: .default, reuseIdentifier: Constants.searchCell)
         cell.textLabel?.text = viewModel.searchedGameList[indexPath.row].name
         return cell
@@ -56,11 +65,11 @@ extension SearchViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension SearchViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = storyboard?.instantiateViewController(identifier: Constants.detailViewController) as! DetailViewController
-//        let vm = DetailViewModel()
-//        vc.viewModel = vm
-//        vc.movieId = viewModel.searchedGameList[indexPath.row].id ?? 0
-//        present(vc, animated: true, completion: nil)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: Constants.detailViewController) as! DetailViewController
+        let vm = DetailViewModel()
+        vc.viewModel = vm
+        vc.gameId = viewModel.searchedGameList[indexPath.row].id ?? 0
+        present(vc, animated: true, completion: nil)
+    }
 }

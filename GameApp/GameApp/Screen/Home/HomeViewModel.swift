@@ -7,7 +7,9 @@
 
 import Foundation
 import CoreNetwork
+import CoreData
 
+// MARK: - Constants
 extension HomeViewModel {
     private enum Constants {
         static let alertTitle = "Error"
@@ -24,7 +26,11 @@ protocol HomeViewModelProtocol {
     var games: [GameResult] { get }
     func willDisplay(_ index: Int)
     func search(searchText: String) -> [GameResult]
+    func removeFavorite(game: FavoriteGame)
+    func addFavorite(game: FavoriteGame)
+    func hasFavorite(id: Int) -> Bool
     func load()
+    func viewWillAppear()
 }
 
 // MARK: - HomeViewModelDelegate
@@ -39,6 +45,7 @@ protocol HomeViewModelDelegate: AnyObject {
     func startTimer()
     func registerCells()
     func setSearchController()
+    func getAppDelegate() -> AppDelegate
 }
 
 // MARK: - HomeViewModel
@@ -47,8 +54,13 @@ final class HomeViewModel {
     weak var delegate: HomeViewModelDelegate?
     private var sliderGameList: [GameResult] = []
     private var gameList: [GameResult] = []
+    private var favoriteList: [FavoriteGame] = []
     private var shouldFetchNextPage: Bool = true
     private var href: String = Constants.firstPage
+
+    lazy var appDelegate = delegate?.getAppDelegate()
+    lazy var context: NSManagedObjectContext = appDelegate!.persistentContainer.viewContext
+    lazy var favoriteOperations: FavoriteOperations = FavoriteOperations(ctx: context)
 
     init(networkManager: NetworkManager<EndpointItem>) {
         self.networkManager = networkManager
@@ -111,6 +123,10 @@ extension HomeViewModel: HomeViewModelProtocol {
         delegate?.setSearchController()
     }
 
+    func viewWillAppear() {
+        favoriteList = favoriteOperations.fecthAllFavorites()
+    }
+
     func willDisplay(_ index: Int) {
         if index == (games.count - Constants.willDisplayCell), shouldFetchNextPage {
             fetchGames(pageQuery: href)
@@ -118,7 +134,6 @@ extension HomeViewModel: HomeViewModelProtocol {
     }
 
     func search(searchText: String) -> [GameResult] {
-        
         let filteredGameList = gameList.filter {
             guard let name = $0.name else { return false }
             if name.lowercased().contains(searchText.lowercased()) {
@@ -127,5 +142,22 @@ extension HomeViewModel: HomeViewModelProtocol {
             return false
         }
         return filteredGameList
+    }
+    
+    func removeFavorite(game: FavoriteGame) {
+        favoriteList.removeAll { favorite in
+            game == favorite
+        }
+    }
+
+    func addFavorite(game: FavoriteGame) {
+        favoriteList.append(game)
+    }
+
+    func hasFavorite(id: Int) -> Bool {
+        let contain = favoriteList.contains { game in
+            game.id == id as NSNumber
+        }
+        return contain
     }
 }

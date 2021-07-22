@@ -28,6 +28,9 @@ final class TabBarController: UITabBarController {
             case let viewController as HomeViewController:
                 let viewModel = HomeViewModel(networkManager: NetworkManager())
                 viewController.viewModel = viewModel
+            case let viewController as FavoriteViewController:
+                let viewModel = FavoriteViewModel(networkManager: NetworkManager())
+                viewController.viewModel = viewModel
             default:
                 break
             }

@@ -17,6 +17,7 @@ extension HomeViewController {
         static let sliderCellId = "SliderCell"
         static let gameCellId = "GameCell"
         static let searchVCId = "SearchViewController"
+        static let detailVCId = "DetailViewController"
         static let gameCellHeight: CGFloat = 100
     }
 }
@@ -43,6 +44,11 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         viewModel.load()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.viewWillAppear()
+    }
 
     @objc private func timerAction() {
         let desiredScrollPosition = (currentIndex < Constants.sliderDataCount - 1) ? currentIndex + 1 : .zero
@@ -52,8 +58,10 @@ final class HomeViewController: UIViewController {
 
 // MARK: - HomeViewModelDelegate, ShowAlert, LoadingShowable
 extension HomeViewController: HomeViewModelDelegate, ShowAlert, LoadingShowable {
-
-
+    func getAppDelegate() -> AppDelegate {
+        UIApplication.shared.delegate as! AppDelegate
+    }
+    
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
@@ -138,6 +146,17 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         viewModel.willDisplay(indexPath.item)
     }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.detailVCId) as! DetailViewController
+        let vm = DetailViewModel()
+        let gameId = collectionView == sliderCollectionView ? viewModel.sliderGames[indexPath.row].id ?? 0: viewModel.games[indexPath.row].id ?? 0
+        vc.viewModel = vm
+        vc.gameId = gameId
+        vc.favoriteDelegate = self
+        vc.isFavorite = viewModel.hasFavorite(id: gameId)
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -154,17 +173,22 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UISearchControllerDelegate
 extension HomeViewController: UISearchBarDelegate, UISearchResultsUpdating {
-
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text, let searchResultVC = searchController.searchResultsController as? SearchViewController else { return }
-
-        let searchResult = viewModel.search(searchText: searchText)
-        searchResultVC.searchResult = searchResult
-    }
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-    }
-
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if let searchText = searchController.searchBar.text, searchText.count >= 3 {
+            guard let searchResultVC = searchController.searchResultsController as? SearchViewController else { return }
+            let searchResult = viewModel.search(searchText: searchText)
+            searchResultVC.searchResult = searchResult
+        }
     }
 }
 
+// MARK: - FavoriteDelegate
+extension HomeViewController: FavoriteDelegate {
+    func addFavorite(game: FavoriteGame) {
+        viewModel.addFavorite(game: game)
+    }
+    
+    func removeFavorite(game: FavoriteGame) {
+        viewModel.removeFavorite(game: game)
+    }
+}
