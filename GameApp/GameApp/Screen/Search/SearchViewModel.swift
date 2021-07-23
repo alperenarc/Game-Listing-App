@@ -35,11 +35,9 @@ protocol SearchViewModelDelegate: AnyObject {
 final class SearchViewModel {
     weak var delegate: SearchViewModelDelegate?
     private let networkManager: NetworkManager<EndpointItem>
-    private let throttler: ThrottlerInterface
     private var searchedGames: [GameResult] = []
 
     init() {
-        throttler = Throttler(minimumDelay: Constants.throttlerDelay)
         self.networkManager = NetworkManager()
     }
 }
@@ -47,12 +45,7 @@ final class SearchViewModel {
 // MARK: - SearchViewModelProtocol
 extension SearchViewModel: SearchViewModelProtocol {
     var searchedGameList: [GameResult] {
-        get {
-            searchedGames
-        }
-        set {
-            searchedGames = newValue
-        }
+        get { searchedGames }
+        set { searchedGames = newValue }
     }
-    
 }

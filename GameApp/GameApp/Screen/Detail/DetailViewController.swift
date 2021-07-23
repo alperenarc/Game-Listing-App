@@ -10,7 +10,8 @@ import UIKit
 // MARK: - DetailViewController
 extension DetailViewController {
     private enum Constants {
-
+        static let heartFill = "heart.fill"
+        static let heart = "heart"
     }
 }
 
@@ -43,12 +44,12 @@ final class DetailViewController: UIViewController {
     @IBAction private func favoriteAction() {
         let result = viewModel.favoriteAction(gameId: gameId)
         if result?.0 ?? false {
-            let image = UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage(systemName: Constants.heartFill)?.withRenderingMode(.alwaysTemplate)
             favoriteButton.setImage(image, for: .normal)
             favoriteButton.tintColor = UIColor.green
             favoriteDelegate?.addFavorite(game: result?.1 ?? FavoriteGame())
         } else {
-            let image = UIImage(systemName: "heart")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage(systemName: Constants.heart)?.withRenderingMode(.alwaysTemplate)
             favoriteButton.setImage(image, for: .normal)
             favoriteButton.tintColor = UIColor.white
             favoriteDelegate?.removeFavorite(game: result?.1 ?? FavoriteGame())
@@ -84,11 +85,11 @@ extension DetailViewController: DetailViewModelDelegate, ShowAlert, LoadingShowa
         gameReleaseDate.text = releasedDate
         
         if isFavorite {
-            let image = UIImage(systemName: "heart.fill")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage(systemName: Constants.heartFill)?.withRenderingMode(.alwaysTemplate)
             favoriteButton.setImage(image, for: .normal)
             favoriteButton.tintColor = UIColor.green
         }else {
-            let image = UIImage(systemName:  "heart")?.withRenderingMode(.alwaysTemplate)
+            let image = UIImage(systemName:  Constants.heart)?.withRenderingMode(.alwaysTemplate)
             favoriteButton.setImage(image, for: .normal)
             favoriteButton.tintColor = UIColor.white
         }

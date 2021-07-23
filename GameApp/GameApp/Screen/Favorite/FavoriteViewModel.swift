@@ -9,11 +9,6 @@ import Foundation
 import CoreNetwork
 import CoreData
 
-extension FavoriteViewModel {
-    private enum Constants {
-    }
-}
-
 // MARK: - FavoriteViewModelProtocol
 protocol FavoriteViewModelProtocol {
     var delegate: FavoriteViewModelDelegate? { get set }

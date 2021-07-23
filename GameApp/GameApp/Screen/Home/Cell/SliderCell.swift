@@ -11,7 +11,6 @@ import SDWebImage
 final class SliderCell: UICollectionViewCell {
     @IBOutlet private weak var sliderImage: UIImageView!
     
-    
     func setupCell(imageUrl: String?) {
         guard let imageUrl = imageUrl else { return }
         let url = URL(string: imageUrl)

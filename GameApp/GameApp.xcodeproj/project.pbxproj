@@ -29,7 +29,6 @@
 		0590136826A57E09005F0D33 /* GameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0590136626A57E09005F0D33 /* GameCell.xib */; };
 		0590137B26A5948C005F0D33 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590137A26A5948C005F0D33 /* Loading.swift */; };
 		0590137D26A594A2005F0D33 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590137C26A594A2005F0D33 /* Alert.swift */; };
-		0590137F26A594BD005F0D33 /* Thorttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0590137E26A594BD005F0D33 /* Thorttler.swift */; };
 		05A59ED526A307850019A6A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A59ED426A307850019A6A2 /* AppDelegate.swift */; };
 		05A59ED726A307850019A6A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A59ED626A307850019A6A2 /* SceneDelegate.swift */; };
 		05A59ED926A307850019A6A2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A59ED826A307850019A6A2 /* HomeViewController.swift */; };
@@ -82,7 +81,6 @@
 		0590136626A57E09005F0D33 /* GameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCell.xib; sourceTree = "<group>"; };
 		0590137A26A5948C005F0D33 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		0590137C26A594A2005F0D33 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
-		0590137E26A594BD005F0D33 /* Thorttler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thorttler.swift; sourceTree = "<group>"; };
 		05A59ED126A307850019A6A2 /* GameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A59ED426A307850019A6A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05A59ED626A307850019A6A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				0582268F26A30BD600E3C90F /* EndpointItem.swift */,
 				0590137A26A5948C005F0D33 /* Loading.swift */,
 				0590137C26A594A2005F0D33 /* Alert.swift */,
-				0590137E26A594BD005F0D33 /* Thorttler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -475,7 +472,6 @@
 				0582269726A30E5700E3C90F /* Game.swift in Sources */,
 				0590137D26A594A2005F0D33 /* Alert.swift in Sources */,
 				0590136726A57E09005F0D33 /* GameCell.swift in Sources */,
-				0590137F26A594BD005F0D33 /* Thorttler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
